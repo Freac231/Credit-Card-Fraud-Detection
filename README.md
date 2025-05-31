@@ -2,4 +2,5 @@
 IDs: 314752841, ID2, ID3, ID4
 
 # Loading the dataset:
-Run dataset_load.py and then run the notebook to check that the dataset is loaded
+Run the notebook it should work as is
+If there are problems: exit pycharm and open again, then run the notebook again
