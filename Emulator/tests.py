@@ -1,4 +1,5 @@
-from server import card_number_validation, date_validation, cvv_validation, name_validation
+from validation_functions import card_number_validation, date_validation, cvv_validation, name_validation
+from server import hide_card_number
 
 card_numbers = {'0123456789012345': True, '1233': False, 'abc21231': False, '01234567b90123456': False,
                 '4580728519274658': True, '45807285192746581321': False}
@@ -66,3 +67,11 @@ if __name__ == '__main__':
     for i, name in enumerate(names):
         test = test_name_validation(name)
         print(f"\tTest {i+1}: {test}")
+
+    ## Testing:
+    ## hide_credit_card_number()
+    number = '4580409022433922'
+    hidden_number = hide_card_number(number)
+
+    print(f"########################\nTesting hide_credit_card_number({number}) --> {hidden_number}")
+
