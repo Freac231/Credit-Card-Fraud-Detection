@@ -1,6 +1,11 @@
 from flask import Flask, request, jsonify
+import logging
 
 app = Flask(__name__)
+logging.basicConfig(filename='server.log', format='%(asctime)s %(message)s', filemode='w')
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
 
 def card_number_validation(card_number):
@@ -12,7 +17,7 @@ def card_number_validation(card_number):
 
 
 def date_validation(date):
-    if len(date) != 4 or not date.isdigit():    ## basic length check and that it consists of numbers
+    if len(date) != 4 or not date.isdigit():  ## basic length check and that it consists of numbers
         return False
 
     month = int(date[0:2])
@@ -39,7 +44,7 @@ def cvv_validation(cvv):
 def name_validation(name):
     try:
         names = name.split(" ")
-        if len(names) != 2:     ## only first and last names are allowed
+        if len(names) != 2:  ## only first and last names are allowed
             return False
     except ValueError:
         return False
@@ -47,9 +52,8 @@ def name_validation(name):
     return True
 
 
-def process(data):
+def validate_data(data):
     card_number, date, cvv, card_holder_name = data.values()
-
     if not card_number_validation(card_number):
         raise Exception("Invalid Card Number")
     elif not date_validation(date):
@@ -60,16 +64,20 @@ def process(data):
         raise Exception("Invalid Name")
 
 
+def process(data):
+    validate_data(data)
+
+
 @app.route("/charge", methods=["POST"])
 def charge():
     data = request.json
     try:
         process(data)
-        print(f"[SERVER] Received payment request:\n{data}")
+        logger.info(f"[SERVER] Received payment request: {data}")
         return jsonify({"status": "received",
                         "message": "Payment processed successfully"})
     except Exception as e:
-        print(f"[SERVER] Denied payment request:\n  Error: {e}")
+        logger.error(f"[SERVER] Denied payment request: {e}")
         return jsonify({"status": "failed",
                         "message": str(e)})
 
