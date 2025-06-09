@@ -19,11 +19,11 @@ We will inject some fake credit card information and track any payments that use
 # detect_fraud.py - Instructions
 - Input: a path to a .csv file of transactions
 - Output: predictions.csv file of the predicted values for the data
-- Example: 'python .\detect_fraud.py <path_to_data>'
+- Example: 'python detect_fraud.py <path_to_data>'
 
 ### Important - the input data HAS to have the correct feature names, the script won't work otherwise
 For valid inputs, check tests/test.csv for a valid example <br />
-Additionally you can run the test samples with: <br /> python .\detect_fraud.py tests/test.csv <br />
+Additionally you can run the test samples with: <br /> 'python detect_fraud.py tests/test.csv' <br />
 
 # Emulator - Instructions
 1. Run server.py 
@@ -39,3 +39,6 @@ Wrong / impossible inputs will be met with an error response from the server and
 # Additional files
 - tests/ - for testing purposes 
 - utils/ - utility files for dataset loading and training
+- requirements.txt - package requirements for this repository, use: pip install -r requirements.txt
+
+Developed in Python version 3.11
