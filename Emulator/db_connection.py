@@ -35,3 +35,11 @@ def is_honey_token(card_number, date, cvv, card_holder_name):
     return False
 
 
+def get_honey_token_id(card_number, date, cvv, card_holder_name):
+    cursor.execute("SELECT * FROM honey_tokens WHERE card_number=%s AND date=%s AND cvv=%s AND card_holder_name=%s",
+                   (card_number, date, cvv, card_holder_name))
+
+    result = cursor.fetchone()
+    if result:
+        return result[0], result[1]
+    return None
