@@ -25,3 +25,17 @@ We will inject some fake credit card information and track any payments that use
 For valid inputs, check tests/test.csv for a valid example <br />
 Additionally you can run the test samples with: <br /> python .\detect_fraud.py tests/test.csv <br />
 
+# Emulator - Instructions
+1. Run server.py 
+2. Run client.py
+3. Follow the instructions until server response
+
+### What goes on?
+Upon running server.py the server will start listening to incoming requests, the emulator emulates a server processing and response to the user.
+If the user inputs valid credit card credentials the server will respond with a success message and log the request in server.log <br />
+The user may input a Honey Token (fake credit card information) in such a case the response from the server will be a success message, but the server will log the suspicious transaction in server.log <br />
+Wrong / impossible inputs will be met with an error response from the server and the transaction will fail.
+
+# Additional files
+- tests/ - for testing purposes 
+- utils/ - utility files for dataset loading and training
