@@ -1,6 +1,5 @@
 # Credit Card Fraud Detection 
-IDs: 314752841, 207851064, 209466721, 20685208 <br />
-Names: Michael Livshits, Shon Platok, Rotem Atar, Naveh Gershoni
+A small Machine Learning project for school
 
 # Loading the dataset:
 Run the notebook it should work as is <br />
