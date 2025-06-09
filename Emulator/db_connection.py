@@ -35,4 +35,3 @@ def is_honey_token(card_number, date, cvv, card_holder_name):
     return False
 
 
-add_honey_token(generate_card_number("4", 16), '1126', '303', 'Mike Shwartz')
