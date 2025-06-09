@@ -39,6 +39,6 @@ Wrong / impossible inputs will be met with an error response from the server and
 # Additional files
 - tests/ - for testing purposes 
 - utils/ - utility files for dataset loading and training
-- requirements.txt - package requirements for this repository, use: pip install -r requirements.txt
+- requirements.txt - package requirements for this repository, use: 'pip install -r requirements.txt'
 
 Developed in Python version 3.11
