@@ -1,5 +1,6 @@
 # Credit Card Fraud Detection 
-A small Machine Learning project for school
+A small Machine Learning project for school, incorporates Machine Learning algorithms such as: Naive Bayes, Logistic Regression etc. <br />
+The models are trained using a dataset taken from kaggle: https://www.kaggle.com/datasets/joebeachcapital/credit-card-fraud?resource=download <br />
 
 # Loading the dataset:
 Run the notebook it should work as is <br />
